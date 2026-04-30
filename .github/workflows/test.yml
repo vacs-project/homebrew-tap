@@ -28,7 +28,7 @@ jobs:
         run: brew tap vacs-project/tap .
 
       - name: brew style
-        run: brew style --cask vacs-project/vacs/tap
+        run: brew style --cask vacs-project/tap/vacs
 
       - name: brew audit
         run: brew audit --cask --online vacs-project/tap/vacs
