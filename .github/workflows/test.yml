@@ -11,16 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ macos-15-intel, macos-26 ]
-        include:
-          - os: ubuntu-latest
-            container: ghcr.io/homebrew/brew:main
     runs-on: ${{ matrix.os }}
-    container: ${{ matrix.container }}
-    permissions:
-      actions: read
-      checks: read
-      contents: read
-      pull-requests: read
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -35,8 +26,5 @@ jobs:
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ matrix.os }}-rubygems-
 
-      - run: brew test-bot --only-cleanup-before
-
-      - run: brew test-bot --only-setup
-
-      - run: brew test-bot --only-tap-syntax
+      - run: brew audit --cask --online Casks/vacs.rb
+      - run: brew style Casks/vacs.rb
