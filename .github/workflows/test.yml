@@ -1,4 +1,4 @@
-name: brew test-bot
+name: brew check
 
 on:
   push:
@@ -26,5 +26,7 @@ jobs:
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ matrix.os }}-rubygems-
 
-      - run: brew audit --cask --online Casks/vacs.rb
       - run: brew style Casks/vacs.rb
+
+      - run: brew audit --cask --online vacs-project/tap/vacs
+      
