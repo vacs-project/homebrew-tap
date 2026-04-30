@@ -24,8 +24,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Tap local repo
+        run: brew tap vacs-project/tap .
+
       - name: brew style
-        run: brew style Casks/vacs.rb
+        run: brew style --cask vacs-project/vacs/tap
 
       - name: brew audit
         run: brew audit --cask --online vacs-project/tap/vacs
