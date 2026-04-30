@@ -29,6 +29,10 @@ jobs:
 
       - name: brew style
         run: brew style --cask vacs-project/tap/vacs
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
 
       - name: brew audit
         run: brew audit --cask --online vacs-project/tap/vacs
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
