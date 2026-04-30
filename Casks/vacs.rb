@@ -2,14 +2,14 @@ cask "vacs" do
   arch arm: "aarch64", intel: "x64"
 
   version "2.3.0"
-  sha256 arm: "f2f81db964e4930cde8056ec114a7a5f77cdc14570b023af6462332cca7bce20",
+  sha256 arm:   "f2f81db964e4930cde8056ec114a7a5f77cdc14570b023af6462332cca7bce20",
          intel: "8ab0d080ad42d4433729fde4aa0f13bb33d9bcb7eafe52928dc0d82ead1e18f9"
 
   url "https://github.com/vacs-project/vacs/releases/download/vacs-client-v#{version}/vacs_#{version}_#{arch}.dmg",
       verified: "github.com/vacs-project/vacs/"
   name "vacs"
   desc "Ground-to-ground voice communication system for VATSIM controllers"
-  homepage "https://vacs.network"
+  homepage "https://vacs.network/"
 
   livecheck do
     url :url

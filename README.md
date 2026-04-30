@@ -1,4 +1,4 @@
-# Vacs-project Tap
+# vacs-project Tap
 
 Homebrew tap for vacs - the VATSIM ATC Communication System.
 
