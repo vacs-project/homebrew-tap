@@ -6,27 +6,26 @@ on:
       - main
   pull_request:
 
+permissions: {}
+
 jobs:
-  test-bot:
+  check:
     strategy:
       matrix:
         os: [ macos-15-intel, macos-26 ]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
     steps:
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
 
-      - name: Cache Homebrew Bundler RubyGems
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ matrix.os }}-rubygems-
+      - name: brew style
+        run: brew style Casks/vacs.rb
 
-      - run: brew style Casks/vacs.rb
-
-      - run: brew audit --cask --online vacs-project/tap/vacs
-      
+      - name: brew audit
+        run: brew audit --cask --online vacs-project/tap/vacs
