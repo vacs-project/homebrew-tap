@@ -1,9 +1,9 @@
 cask "vacs" do
   arch arm: "aarch64", intel: "x64"
 
-  version "2.4.0"
-  sha256 arm:   "61afca0d6440752c0758a1a9ceff451e4cdfb33e7e721e711aa238dc5e656383",
-         intel: "4d889b01298febd6f2e7d00b5d8d38593b61c929ed2bdcdf071e3139e3026892"
+  version "2.5.0"
+  sha256 arm:   "4e61dae6d86d50146b53adc26dc9e2448baf9b5f034f50e7d97808021712c325",
+         intel: "db95f56322e5451a5493d9a535bdbf70032a5189bbe1159c6b7d46341fb2aeae"
 
   url "https://github.com/vacs-project/vacs/releases/download/vacs-client-v#{version}/vacs_#{version}_#{arch}.dmg",
       verified: "github.com/vacs-project/vacs/"
